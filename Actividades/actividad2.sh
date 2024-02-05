@@ -24,5 +24,5 @@ mkdir -p $log_dir
 echo "Hola $github_user. User ID: $user_id. Cuenta fue creada el: $created_at." > $log_file
 
 # Crea un cronjob para que el script se ejecute cada 5 minutos
-cronjob="@every5minutes $PWD/actividad2.sh"
+cronjob="*/5 * * * * $PWD/actividad2.sh"
 (crontab -l; echo "$cronjob") | crontab -
