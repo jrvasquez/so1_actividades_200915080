@@ -13,58 +13,58 @@ done
 
 
 --guardamos el script en la ruta 
-/usr/local/bin/.
+## /usr/local/bin/.
 
 -- damos permiso  al archivo 
-sudo chmod +x /usr/local/bin/saludo.sh
+## sudo chmod +x /usr/local/bin/saludo.sh
 
-Luego se creara el archivo de servicio Systemd con nombre saludo.service se guardara en la ruta /etc/systemd/system/.
+## Luego se creara el archivo de servicio Systemd con nombre saludo.service se guardara en la ruta /etc/systemd/system/.
 
-[Unit]
+###. [Unit]
 Description=Servicio de saludo
 
-[Service]
+###. [Service]
 Type=simple
 ExecStart=/usr/local/bin/saludo_script.sh
 Restart=always
 
-[Install]
+###. [Install]
 WantedBy=multi-user.target
 
-recargamos  los archivos de configuración de systemd para  reocnocer el nuevo servicio.
+### . recargamos  los archivos de configuración de systemd para  reocnocer el nuevo servicio.
 
 bash
 Copy code
 sudo systemctl daemon-reload
 
-Habilitamos el servicio para que se inicie automaticamente con el sistema.
+##Habilitamos el servicio para que se inicie automaticamente con el sistema.
 
 bash
 Copy code
-sudo systemctl enable saludo.service
+## sudo systemctl enable saludo.service
 
 Ahora ya podemos iniciar el servicio.
 
 bash
 Copy code
-sudo systemctl start saludo.service
+## sudo systemctl start saludo.service
 
 Comprobamos el servicio.
 
 bash
 Copy code
-sudo systemctl status saludo.service
+## sudo systemctl status saludo.service
 
 Revisamos los logs del servicio.
 
 
 bash
 Copy code
-journalctl -u saludo.service
+## journalctl -u saludo.service
 
 bash
 Copy code
-journalctl -u saludo.service -n 50   
+## journalctl -u saludo.service -n 50   
 -- ultimos 50 registros.
 
 
